@@ -40,7 +40,6 @@ function App() {
     }, []);
 
     useEffect(() => {
-      console.log('The DATE changed')
       setDay(new Date(dateStr));
       if (dateStr in data) {
           setActivities(data[dateStr as keyof typeof Data]['activities']);

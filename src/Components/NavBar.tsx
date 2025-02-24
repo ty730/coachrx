@@ -24,9 +24,18 @@ function NavBar(props: Props) {
             const dayOfWeek = currDate.getDay(); // Get the weekday (0 = Sunday, 6 = Saturday)
             const mondayOffset = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // Calculate days away from Monday (1)
             tempStart = new Date(currDate.getTime());
-            tempEnd = new Date(currDate.getTime());
             tempStart.setDate(tempStart.getDate() - mondayOffset);
-            tempEnd.setDate(tempStart.getDate() + 6);
+
+            // Calculate End
+            tempEnd = new Date(tempStart.getTime());
+            const daysInMonth = new Date(tempStart.getFullYear(), tempStart.getMonth() + 1, 0).getDate(); // Get number of days in the month
+            const newEndDate = tempStart.getDate() + 6;
+            if (newEndDate <= daysInMonth) {
+                tempEnd.setDate(newEndDate);
+            } else {
+                tempEnd.setMonth(tempEnd.getMonth() + 1);
+                tempEnd.setDate(newEndDate - daysInMonth);
+            }
         }
         if ((weekArr.length == 0 || !useCurrWeek) && (tempStart && tempEnd)) {
             createWeekArr(tempStart, tempEnd);
