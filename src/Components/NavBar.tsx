@@ -33,8 +33,12 @@ function NavBar(props: Props) {
             if (newEndDate <= daysInMonth) {
                 tempEnd.setDate(newEndDate);
             } else {
-                tempEnd.setMonth(tempEnd.getMonth() + 1);
-                tempEnd.setDate(newEndDate - daysInMonth);
+                let newMonth = tempEnd.getMonth() + 1;
+                if (newMonth > 11) { // Months are 0 - 11
+                    newMonth = 0;
+                    tempEnd.setFullYear(tempEnd.getFullYear() + 1);
+                }
+                tempEnd.setMonth(tempEnd.getMonth() + 1, newEndDate - daysInMonth);
             }
         }
         if ((weekArr.length == 0 || !useCurrWeek) && (tempStart && tempEnd)) {
