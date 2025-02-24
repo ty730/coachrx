@@ -1,5 +1,28 @@
+/*
+
+A1, A2, etc  color: #3cb4e5, #020e12
+green check  color: #00eb85
+streak bkg   color: #013b29
+up left prg  color: #a9fdd8
+up right cmt color: #1281a5
+streak       color: #00f087
+not done dot color: #4a6368
+footer       color: #020e12
+footer blue  color: #3cb4e5
+
+*/
+
 .App {
   text-align: center;
+  background-color: #020e12;
+  color: rgb(240, 240, 240);
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .App-logo {
@@ -35,4 +58,322 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.NavTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Main {
+  padding: 5px 20px 0px 20px;
+  min-height: 550px;
+}
+
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #0e6481;
+  padding: 20px 20px 20px 20px;
+}
+
+.HeaderHello {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-self: flex-start;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.LinkButton {
+  all: unset; /* Remove all default button styling */
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bolder;
+  margin: 0px 0px 0px 0px;
+}
+
+.LinkButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Shift underline 5px below the text */
+  width: 100%;
+  height: 2px; /* Thickness of underline */
+  background-color: #3cb4e5;
+}
+
+.CommentButton {
+  background-color: #020e12;
+  color: white;
+  border: 1px solid #3cb4e5;
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  width: 96%;
+}
+
+.EditButton {
+  width: 100%;
+  font-weight: 510;
+  font-size: 13px;
+  background-color: #229cc8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.ActivityCard, .Header {
+  background-color: #041d25;
+}
+
+.ActivityCard {
+  border: 1px solid #0e6481;
+  border-radius: 5px;
+  padding: 5px 10px 15px 10px;
+  margin-bottom: auto;
+}
+
+.CircleButton {
+  background-color: #062b37;
+  border: 0.2px solid #0a475c;
+  border-radius: 50%;
+  color: white;
+  height: 35px;
+  width: 35px;
+  margin-bottom: 4px;
+}
+
+.CircleButton:hover {
+  border: 0.5px solid #229cc8;
+}
+
+.FooterWrapper, .HeaderWrapper {
+  display: fixed;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.FooterWrapper {
+  bottom: 0;
+  left: 0;
+}
+
+.HeaderWrapper {
+  top: 0;
+  right: 0;
+}
+
+.Footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #020e12;
+  border-top: 2px solid #0e6481;
+  padding: 12px 0px 12px 0px;
+}
+
+.Daily {
+  text-align: left;
+}
+
+.TasksContainer {
+  padding: 0px 20px 30px 20px;
+}
+
+.CommentButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+}
+
+.Separator {
+  width: 100%;          /* Make the line span the full width of the container */
+  height: 1px;          /* Set the height to a small value to make it look like a line */
+  background-color: #0e6481; /* Set the color of the line */
+  border: none;         /* Remove any borders */
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-size: 15px;
+  margin: 15px 0px 10px 0px;
+}
+
+.Daily p {
+  font-size: 12px;
+  margin: 1px 0px 1px 0px;
+}
+
+.TaskDetails {
+  padding: 5px 0px 10px 0px;
+}
+
+.Italic {
+  font-style: italic;
+  color: rgb(165, 165, 165);
+  margin: 0 !important;
+  font-size: 13px;
+}
+
+.Header h4 {
+  margin: 2px 0px 2px 0px;
+  font-size: 14px;
+}
+
+.CircleProgress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #0e6481;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.FlexStart {
+  align-self: flex-start;
+  margin-right: 3%;
+}
+
+.Daily h2 {
+  font-size: 17px;
+  margin: 10px 0px 10px 0px;
+  letter-spacing: -0.5px;
+}
+
+.NavBar {
+  margin: 0px 0px 32px 0px;
+}
+
+.NavTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0px 0px 10px 0px;
+}
+
+.NavWeek {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.NavTop h2 {
+  margin: 10px 0px 10px 0px;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+}
+
+.CalendarLinkContainer {
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-top: 5px;
+}
+
+.StreakContainer {
+  margin-left: 10px;
+  background-color: #013b29;
+  color: #00f087;
+  padding: 3px 8px 3px 8px;
+  border-radius: 5px;
+}
+
+.StreakContainer p {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.HeaderCommentButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #229cc8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.HeaderCommentContainer {
+
+}
+
+@media only screen and (min-width: 750px) {
+  .Main {
+    padding: 5px 20% 0px 20%;
+  }
+
+  .Header {
+    padding: 20px 20% 20px 20%;
+  }
+
+  .Footer {
+    padding: 12px 10% 12px 10%;
+  }
+
+  .ActivityCard {
+    padding: 5px 10% 15px 10%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .Main {
+    padding: 5px 30% 0px 30%;
+  }
+}
+
+@media only screen and (min-height: 720px) {
+  .Main {
+    min-height: 640px;
+  }
+}
+
+@media only screen and (min-height: 800px) {
+  .Main {
+    min-height: 740px;
+  }
+}
+
+@media only screen and (min-height: 850px) {
+  .Main {
+    min-height: 840px;
+  }
+}
+
+@media only screen and (min-height: 1000px) {
+  .Main {
+    min-height: 1250px;
+  }
+}
+
+.Today {
+  background-color: #229cc8;
+  border: none;
 }
