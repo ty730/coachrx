@@ -27,7 +27,6 @@ export type DataType = {
 
 function App() {
     const [dateStr, setDateStr] = useState<string>(new Date().toLocaleDateString('en-us'));
-    const [day, setDay] = useState<Date>(new Date());
     const [activities, setActivities] = useState<Activity[]>([]);
     const [data, setData] = useState<DataType>({});
 
@@ -40,7 +39,6 @@ function App() {
     }, []);
 
     useEffect(() => {
-      setDay(new Date(dateStr));
       if (dateStr in data) {
           setActivities(data[dateStr as keyof typeof Data]['activities']);
       } else {
@@ -64,7 +62,7 @@ function App() {
         <Header />
         <div className='Main'>
           <NavBar currDateStr={dateStr} handleDateChange={handleDateChange}/>
-          <DayPage activities={ activities } />
+          <DayPage activities={ activities } currDateStr={dateStr} handleDateChange={handleDateChange} />
         </div>
         <Footer />
       </div>

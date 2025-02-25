@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useSwipe from '../Hooks/useSwipe';
 
 type Props = {
     currDateStr: string;
@@ -14,6 +15,20 @@ function NavBar(props: Props) {
         month: "short",
         day: "numeric",
       };
+    const swipeHandlers = useSwipe({ 
+        onSwipedLeft: () => {
+            let nextDate: Date = new Date(props.currDateStr);
+            nextDate.setDate(nextDate.getDate() + 7);
+            props.handleDateChange(nextDate);
+            console.log(nextDate.toLocaleDateString('en-US'));
+        }, 
+        onSwipedRight: () => {
+            let prevDate: Date = new Date(props.currDateStr);
+            prevDate.setDate(prevDate.getDate() - 7);
+            props.handleDateChange(prevDate);
+            console.log(prevDate.toLocaleDateString('en-US'));
+        }
+    });
 
     useEffect(() => {
         let currDate = new Date(props.currDateStr);
@@ -28,18 +43,7 @@ function NavBar(props: Props) {
 
             // Calculate End
             tempEnd = new Date(tempStart.getTime());
-            const daysInMonth = new Date(tempStart.getFullYear(), tempStart.getMonth() + 1, 0).getDate(); // Get number of days in the month
-            const newEndDate = tempStart.getDate() + 6;
-            if (newEndDate <= daysInMonth) {
-                tempEnd.setDate(newEndDate);
-            } else {
-                let newMonth = tempEnd.getMonth() + 1;
-                if (newMonth > 11) { // Months are 0 - 11
-                    newMonth = 0;
-                    tempEnd.setFullYear(tempEnd.getFullYear() + 1);
-                }
-                tempEnd.setMonth(tempEnd.getMonth() + 1, newEndDate - daysInMonth);
-            }
+            tempEnd.setDate(tempEnd.getDate() + 6);
         }
         if ((weekArr.length == 0 || !useCurrWeek) && (tempStart && tempEnd)) {
             createWeekArr(tempStart, tempEnd);
@@ -59,7 +63,7 @@ function NavBar(props: Props) {
     }
 
     return (
-        <div className="NavBar">
+        <div {...swipeHandlers} className="NavBar">
             <div className='NavTop'>
                 <div>
                     <h2>{new Date(props.currDateStr).toLocaleString('en-US', dateOptions)}</h2>

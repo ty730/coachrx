@@ -68,8 +68,12 @@ footer blue  color: #3cb4e5
 }
 
 .Main {
-  padding: 5px 20px 0px 20px;
+  padding: 5px 0px 0px 0px;
   min-height: 550px;
+}
+
+.NavBar, .Daily {
+  padding: 0px 20px 0px 20px;
 }
 
 .Header {
@@ -327,7 +331,9 @@ h4 {
 
 @media only screen and (min-width: 750px) {
   .Main {
-    padding: 5px 20% 0px 20%;
+  }
+  .NavBar, .Daily {
+    padding: 0px 20% 0px 20%;
   }
 
   .Header {
@@ -345,7 +351,10 @@ h4 {
 
 @media only screen and (min-width: 1000px) {
   .Main {
-    padding: 5px 30% 0px 30%;
+  }
+
+  .NavBar, .Daily {
+    padding: 0px 30% 0px 30%;
   }
 }
 
