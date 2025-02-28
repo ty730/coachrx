@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import useSwipe from '../Hooks/useSwipe';
+import DateButton from '../Helpers/DateButton';
+import { createDatesArr } from '../Helpers/DatesHelper';
 
 type Props = {
     currDateStr: string;
     handleDateChange: (date: Date) => void;
+    openModal: () => void;
 }
 
 function NavBar(props: Props) {
-    const [weekArr, setWeekArr] = useState<Date[]>([]);
+    const [weekArr, setWeekArr] = useState<(Date | null)[]>([]);
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
     const dateOptions: Intl.DateTimeFormatOptions = {
@@ -20,13 +23,11 @@ function NavBar(props: Props) {
             let nextDate: Date = new Date(props.currDateStr);
             nextDate.setDate(nextDate.getDate() + 7);
             props.handleDateChange(nextDate);
-            console.log(nextDate.toLocaleDateString('en-US'));
         }, 
         onSwipedRight: () => {
             let prevDate: Date = new Date(props.currDateStr);
             prevDate.setDate(prevDate.getDate() - 7);
             props.handleDateChange(prevDate);
-            console.log(prevDate.toLocaleDateString('en-US'));
         }
     });
 
@@ -46,21 +47,11 @@ function NavBar(props: Props) {
             tempEnd.setDate(tempEnd.getDate() + 6);
         }
         if ((weekArr.length == 0 || !useCurrWeek) && (tempStart && tempEnd)) {
-            createWeekArr(tempStart, tempEnd);
+            setWeekArr(createDatesArr(tempStart, tempEnd));
         }
         setStartDate(tempStart);
         setEndDate(tempEnd);
       }, [props.currDateStr]);
-    
-    function createWeekArr(start: Date, end: Date) {
-        let date = start;
-        let week = [];
-        while (date <= end) {
-            week.push(new Date(date.getTime()))
-            date.setDate(date.getDate() + 1);
-        }
-        setWeekArr(week);
-    }
 
     return (
         <div {...swipeHandlers} className="NavBar">
@@ -74,23 +65,31 @@ function NavBar(props: Props) {
                     </div>
                 </div>
                 <div className='CalendarLinkContainer'>
-                    <button className='LinkButton'>CALENDAR</button>
+                    <button className='LinkButton' onClick={props.openModal}>CALENDAR</button>
                 </div>
             </div>
             <div className='NavWeek'>
-                {weekArr.map((date) => {
+                {weekArr.map((date, i) => {
                     return(
                         <div>
-                            <button className={`CircleButton ${new Date(props.currDateStr).getDate() == date.getDate() ? 'Today' : ''}`}
-                                    onClick={() => props.handleDateChange(date)}
-                            >
-                                <div></div>
-                                <div>{date.getDate()}</div>
-                            </button>
-                            <div>{date.toLocaleString('en-US', { weekday: 'narrow'})}</div>
+                            { date ?
+                                <div>
+                                    <DateButton 
+                                        key={i}
+                                        className={'CircleButton'}
+                                        currDateStr={props.currDateStr} 
+                                        date={date} 
+                                        handleDateChange={props.handleDateChange} 
+                                    />
+                                    <div>{date.toLocaleString('en-US', { weekday: 'narrow'})}</div>
+                                </div>
+                            : null
+                            }
                         </div>
-                    );
-                })}
+                        )
+                        }
+                    )
+                }
             </div>
         </div>
     );

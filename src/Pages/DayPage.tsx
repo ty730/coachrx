@@ -15,13 +15,11 @@ function DayPage(props: Props) {
             let nextDate: Date = new Date(props.currDateStr);
             nextDate.setDate(nextDate.getDate() + 1);
             props.handleDateChange(nextDate);
-            console.log(nextDate.toLocaleDateString('en-US'));
         }, 
         onSwipedRight: () => {
             let prevDate: Date = new Date(props.currDateStr);
             prevDate.setDate(prevDate.getDate() - 1);
             props.handleDateChange(prevDate);
-            console.log(prevDate.toLocaleDateString('en-US'));
         }
     });
 
@@ -30,7 +28,7 @@ function DayPage(props: Props) {
             <h2>YOUR DAILY RX</h2>
             {props.activities.map((item, i) => {
                 return(
-                    <ActivityCard activity={props.activities[i]}/>
+                    <ActivityCard activity={props.activities[i]} key={i}/>
                 );
             })}
         </div>

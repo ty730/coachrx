@@ -151,17 +151,36 @@ footer blue  color: #3cb4e5
   margin-bottom: auto;
 }
 
-.CircleButton {
-  background-color: #062b37;
-  border: 0.2px solid #0a475c;
+.DateButton {
   border-radius: 50%;
   color: white;
   height: 35px;
   width: 35px;
   margin-bottom: 4px;
+  background-color: inherit;
+  border: inherit;
 }
 
-.CircleButton:hover {
+.CircleButton {
+  background-color: #062b37;
+  border: 0.2px solid #0a475c;
+}
+
+.CalendarDate {
+  font-size: 15px;
+}
+
+.EmptyDiv {
+  height: 35px;
+  width: 35px;
+}
+
+.DayName {
+  height: 35px;
+  width: 35px;
+}
+
+.DateButton:hover {
   border: 0.5px solid #229cc8;
 }
 
@@ -277,14 +296,6 @@ h4 {
   padding: 0px 0px 10px 0px;
 }
 
-.NavWeek {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
-
 .NavTop h2 {
   margin: 10px 0px 10px 0px;
   font-size: 17px;
@@ -385,4 +396,52 @@ h4 {
 .Today {
   background-color: #229cc8;
   border: none;
+}
+
+
+.NavWeek, .DayNames, .Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  width: 100%;
+}
+
+.DayGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.DayGrid, .DayNames {
+  padding: 10px 10px 10px 10px;
+}
+
+.Calendar {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  padding: 10px 10px 10px 10px;
+}
+
+.ModalWrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 200;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.ModalInner {
+  height: 500px;
+  width: 100%;
+  margin: auto;
+  background-color: #041d25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

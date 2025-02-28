@@ -18,14 +18,14 @@ function ActivityCard(props: Props) {
                         <div className='details'>
                             {task.details && task.details.map((line, i) => {
                                 return(
-                                    <p>{line}</p>
+                                    <p key={i}>{line}</p>
                                 );
                             })}
                         </div>
                         <div className='comments'>
                             {task.comments && task.comments.map((line, i) => {
                                 return(
-                                    <p>{line}</p>
+                                    <p key={i}>{line}</p>
                                 );
                             })}
                         </div>
