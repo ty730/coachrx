@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createDatesArr } from '../Helpers/DatesHelper';
 import DateButton from '../Helpers/DateButton';
-import { JSX } from 'react';
+import { FaChevronLeft } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 
 interface Props {
     onClose: () => void;
@@ -11,10 +12,9 @@ interface Props {
 
 function Calendar(props: Props) {
     const [datesArr, setDatesArr] = useState<Date[]>([]);
-    const [daysOfWeek, setDaysOfWeek] = useState<Date[]>([]);
+    const [daysOfWeek] = useState<Date[]>(weekDayNames());
     const [month, setMonth] = useState<number>(new Date(props.currDateStr).getMonth());
     const [year, setYear] = useState<number>(new Date(props.currDateStr).getFullYear());
-    const [jsxArr, setJsxArr] = useState<JSX.Element>();
 
 
     useEffect(() => {
@@ -27,25 +27,53 @@ function Calendar(props: Props) {
         console.log('first: ' + date.toLocaleDateString('en-US'))
         console.log('last: ' + lastDate.toLocaleDateString('en-US'))
         setDatesArr(createDatesArr(date, lastDate));
+    }, [month, year]);
 
-
+    function weekDayNames() {
         // For Monday - Sunday
+        let date = new Date();
+        const dayOfWeekFirst = date.getDay(); // Get the weekday (0 = Sunday, 6 = Saturday)
+        date.setDate(date.getDate() - (dayOfWeekFirst === 0 ? 6 : dayOfWeekFirst - 1));
         const theWeek = Array.from(Array(7)).map((_, i) => {
-          let tempDate = new Date(date.getTime());
-          date.setDate(date.getDate() + 1);
-          return tempDate;
+            let tempDate = new Date(date.getTime());
+            date.setDate(date.getDate() + 1);
+            return tempDate;
         });
-        setDaysOfWeek(theWeek);
-    }, []);
+        return theWeek;
+    }
 
     function changeDateAndClose(date: Date) {
         props.handleDateChange(date);
         props.onClose();
     }
 
+    function changeMonth(isForward: boolean) {
+      const increment = isForward ? 1 : -1;
+      let date = new Date(year, month, 1);
+      date.setMonth(date.getMonth() + increment);
+      setMonth(date.getMonth());
+      setYear(date.getFullYear());
+    }
+
+    function nextMonth() {
+      changeMonth(true);
+    }
+
+    function prevMonth() {
+      changeMonth(false);
+    }
+
     return (
       <div className="Calendar">
-          <div className='MonthTitle'>{new Date(year, month, 1).toLocaleDateString('en-US', { month: "long" })}</div>
+          <div className='MonthTitle'>
+            <button onClick={prevMonth}>
+              <FaChevronLeft className='CalendarArrow' size={15} />
+            </button>
+            <h4 className='MonthName'>{new Date(year, month, 1).toLocaleDateString('en-US', { month: "long" })}</h4>
+            <button onClick={nextMonth}>
+              <FaChevronRight className='CalendarArrow' size={15} />
+            </button>
+          </div>
           <div className='Separator'></div>
           <div className='DayGrid'>
             <div className='Row'>
@@ -61,7 +89,7 @@ function Calendar(props: Props) {
                           {datesArr.slice((i * 7), (i * 7) + 7).map((date, j) => {
                               return(
                                   <div>
-                                    { date.getMonth() == month ?
+                                    { date.getMonth() === month ?
                                           <div>
                                               <DateButton 
                                                   key={j}
@@ -79,6 +107,9 @@ function Calendar(props: Props) {
                       </div>
                   );
               })}
+          </div>
+          <div className='TodayLinkContainer'>
+              <button className='LinkButton' onClick={() => { changeDateAndClose(new Date())}}>TODAY</button>
           </div>
       </div>
   );

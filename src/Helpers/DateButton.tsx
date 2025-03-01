@@ -7,7 +7,9 @@ interface Props {
 
 function DateButton(props: Props) {
     return (
-        <button className={`DateButton ${props.className} ${new Date(props.currDateStr).getDate() == props.date.getDate() ? 'Today' : ''}`}
+        <button className={`DateButton ${props.className} 
+                            ${new Date(props.currDateStr).toLocaleDateString('en-US') === props.date.toLocaleDateString('en-US') ? 'CurrDay' : ''} 
+                            ${new Date().toLocaleDateString('en-US') === props.date.toLocaleDateString('en-US') ? ' Today' : ''}`}
                 onClick={() => props.handleDateChange(props.date)}
         >
             <div>{props.date.getDate()}</div>

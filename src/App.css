@@ -125,6 +125,7 @@ footer blue  color: #3cb4e5
   text-align: center;
   font-size: 13px;
   width: 96%;
+  margin-top: 15px;
 }
 
 .EditButton {
@@ -154,8 +155,8 @@ footer blue  color: #3cb4e5
 .DateButton {
   border-radius: 50%;
   color: white;
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
   margin-bottom: 4px;
   background-color: inherit;
   border: inherit;
@@ -171,13 +172,13 @@ footer blue  color: #3cb4e5
 }
 
 .EmptyDiv {
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
 }
 
 .DayName {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 45px;
 }
 
 .DateButton:hover {
@@ -234,12 +235,6 @@ footer blue  color: #3cb4e5
   height: 1px;          /* Set the height to a small value to make it look like a line */
   background-color: #0e6481; /* Set the color of the line */
   border: none;         /* Remove any borders */
-  margin-bottom: 15px;
-}
-
-h4 {
-  font-size: 15px;
-  margin: 15px 0px 10px 0px;
 }
 
 .Daily p {
@@ -261,6 +256,11 @@ h4 {
 .Header h4 {
   margin: 2px 0px 2px 0px;
   font-size: 14px;
+}
+
+.TaskDetails h4 {
+  font-size: 15px;
+  margin: 15px 0px 10px 0px;
 }
 
 .CircleProgress {
@@ -393,9 +393,13 @@ h4 {
   }
 }
 
-.Today {
+.CurrDay {
   background-color: #229cc8;
   border: none;
+}
+
+.Today {
+  border: 1px solid #229cc8;
 }
 
 
@@ -437,11 +441,40 @@ h4 {
 }
 
 .ModalInner {
-  height: 500px;
-  width: 100%;
-  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  padding: 20px 10px 20px 10px;
   background-color: #041d25;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.MonthTitle {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.MonthTitle h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.MonthTitle button {
+  background-color: inherit;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.CalendarArrow {
+  color: white;
 }
