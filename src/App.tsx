@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './Components/Header';
 import DayPage from './Pages/DayPage';
@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import NavBar from './Components/NavBar';
 import Modal from './Helpers/Modal';
 import Calendar from './Modals/Calendar';
+import WorkoutPage from './Pages/WorkoutPage';
 
 export type Task = {
     name?: string;
@@ -32,6 +33,7 @@ function App() {
     const [activities, setActivities] = useState<Activity[]>([]);
     const [data, setData] = useState<DataType>({});
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [inWorkout, setInWorkout] = useState(false);
 
     function handleDateChange(date: Date) {
       setDateStr(date.toLocaleDateString('en-us'));
@@ -78,17 +80,24 @@ function App() {
 
     return (
       <div className="App">
-        <Header />
-        <div className='Main'>
-          <NavBar currDateStr={dateStr} handleDateChange={handleDateChange} openModal={openModal} />
-          <DayPage activities={ activities } currDateStr={dateStr} handleDateChange={handleDateChange} />
-        </div>
-        <Footer />
-        { isModalOpen &&
-          <Modal isOpen={isModalOpen} onClose={closeModal}>
-            <Calendar onClose={closeModal} currDateStr={dateStr} handleDateChange={handleDateChange} />
-          </Modal>
-        }
+          {
+              inWorkout ?
+              <WorkoutPage activities={ activities } />
+              :
+              <div>
+                  <Header />
+                  <div className='Main'>
+                    <NavBar currDateStr={dateStr} handleDateChange={handleDateChange} openModal={openModal} />
+                    <DayPage activities={ activities } currDateStr={dateStr} handleDateChange={handleDateChange} />
+                  </div>
+                  <Footer />
+                  { isModalOpen &&
+                    <Modal isOpen={isModalOpen} onClose={closeModal}>
+                      <Calendar onClose={closeModal} currDateStr={dateStr} handleDateChange={handleDateChange} />
+                    </Modal>
+                  }
+              </div>
+          }
       </div>
     );
 }

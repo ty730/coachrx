@@ -17,7 +17,7 @@ function Header(props: Props) {
             <div>
                 <div className='HeaderCommentContainer'>
                     <button className='HeaderCommentButton'>
-                        <BiComment />
+                        <BiComment size={40}/>
                     </button>
                 </div>
             </div>
