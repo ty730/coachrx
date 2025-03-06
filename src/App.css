@@ -12,6 +12,10 @@ footer blue  color: #3cb4e5
 
 */
 
+html, body, #root {
+  height: 100%;
+}
+
 .App {
   text-align: center;
   background-color: #020e12;
@@ -22,7 +26,13 @@ footer blue  color: #3cb4e5
   font-style: normal;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  height: 100%;
+}
+
+.App > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -38,7 +48,7 @@ footer blue  color: #3cb4e5
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,8 +78,8 @@ footer blue  color: #3cb4e5
 }
 
 .Main {
-  padding: 5px 0px 0px 0px;
-  min-height: 75vh;
+  background-color: #020e12;
+  flex-grow: 1;
 }
 
 .NavBar, .Daily {
@@ -83,6 +93,7 @@ footer blue  color: #3cb4e5
   align-items: center;
   border-bottom: 1px solid #0e6481;
   padding: 20px 20px 20px 20px;
+  height: 55px;
 }
 
 .HeaderHello {
@@ -187,10 +198,7 @@ footer blue  color: #3cb4e5
 }
 
 .FooterWrapper, .HeaderWrapper {
-  display: fixed;
   position: sticky;
-  bottom: 0;
-  left: 0;
   width: 100%;
   z-index: 100;
 }
@@ -446,7 +454,7 @@ footer blue  color: #3cb4e5
 }
 
 .Workout {
-  min-height: 100vh;
+  min-height: 100%;
   height: 100%;
   width: 100%;
 }
@@ -473,7 +481,6 @@ footer blue  color: #3cb4e5
 
 .WorkoutMain {
   background-color: inherit;
-  min-height: 92vh;
   color: white;
   text-align: left;
   padding: 0px 20px 0px 20px;
@@ -502,62 +509,6 @@ footer blue  color: #3cb4e5
 
   .ExitButton {
     margin-right: 4% !important;
-  }
-}
-
-@media only screen and (min-height: 680px) {
-  .Main {
-    min-height: 77vh;
-  }
-
-  .WorkoutMain {
-    min-height: 93vh;
-  }
-}
-
-@media only screen and (min-height: 720px) {
-  .Main {
-    min-height: 79vh;
-  }
-
-  .WorkoutMain {
-    min-height: 93vh;
-  }
-}
-
-@media only screen and (min-height: 800px) {
-  .Main {
-    min-height: 81vh;
-  }
-
-  .WorkoutMain {
-    min-height: 94vh;
-  }
-}
-
-@media only screen and (min-height: 850px) {
-  .Main {
-    min-height: 83vh;
-  }
-
-  .WorkoutMain {
-    min-height: 95vh;
-  }
-}
-
-@media only screen and (min-height: 1000px) {
-  .Main {
-    min-height: 87vh;
-  }
-
-  .WorkoutMain {
-    min-height: 95vh;
-  }
-}
-
-@media only screen and (min-height: 1300px) {
-  .Main {
-    min-height: 90vh;
   }
 }
 
