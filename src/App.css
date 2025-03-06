@@ -164,6 +164,10 @@ html, body, #root {
   color: white;
 }
 
+.ActivityCard h3 {
+  margin: 10px 0px 10px 0px;
+}
+
 .DateButton {
   border-radius: 50%;
   color: white;
@@ -172,6 +176,7 @@ html, body, #root {
   margin-bottom: 4px;
   background-color: inherit;
   border: inherit;
+  font-size: 16px;
 }
 
 .CircleButton {
@@ -247,7 +252,7 @@ html, body, #root {
 }
 
 .Daily p {
-  font-size: 12px;
+  font-size: 14px;
   margin: 1px 0px 1px 0px;
 }
 
@@ -268,7 +273,7 @@ html, body, #root {
 }
 
 .TaskDetails h4 {
-  font-size: 15px;
+  font-size: 16px;
   margin: 15px 0px 10px 0px;
 }
 
@@ -484,6 +489,9 @@ html, body, #root {
   color: white;
   text-align: left;
   padding: 0px 20px 0px 20px;
+  touch-action: none;
+  height: 100%;
+  /* transition: 0.2s ease; */
 }
 
 .WorkoutMain h4 {
@@ -492,7 +500,7 @@ html, body, #root {
 }
 
 .WorkoutMain p {
-  font-size: 15px;
+  font-size: 16px;
   margin: 0;
 }
 

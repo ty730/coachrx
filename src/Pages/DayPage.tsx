@@ -21,17 +21,20 @@ function DayPage(props: Props) {
             let prevDate: Date = new Date(props.currDateStr);
             prevDate.setDate(prevDate.getDate() - 1);
             props.handleDateChange(prevDate);
-        }
+        },
+        allowDrag: true
     });
 
     return (
-        <div {...swipeHandlers} className="Daily">
+        <div className="Daily">
             <h2>YOUR DAILY RX</h2>
-            {props.activities.map((item, i) => {
-                return(
-                    <ActivityCard activity={props.activities[i]} handleStartWorkout={props.handleStartWorkout} key={i}/>
-                );
-            })}
+            <div {...swipeHandlers}>
+                {props.activities.map((item, i) => {
+                    return(
+                        <ActivityCard activity={props.activities[i]} handleStartWorkout={props.handleStartWorkout} key={i}/>
+                    );
+                })}
+            </div>
         </div>
     );
 }

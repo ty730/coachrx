@@ -28,7 +28,8 @@ function NavBar(props: Props) {
             let prevDate: Date = new Date(props.currDateStr);
             prevDate.setDate(prevDate.getDate() - 7);
             props.handleDateChange(prevDate);
-        }
+        },
+        allowDrag: true
     });
 
     useEffect(() => {
@@ -54,7 +55,7 @@ function NavBar(props: Props) {
       }, [props.currDateStr]);
 
     return (
-        <div {...swipeHandlers} className="NavBar">
+        <div className="NavBar">
             <div className='NavTop'>
                 <div>
                     <h2>{new Date(props.currDateStr).toLocaleString('en-US', dateOptions)}</h2>
@@ -68,7 +69,7 @@ function NavBar(props: Props) {
                     <button className='LinkButton' onClick={props.openModal}>CALENDAR</button>
                 </div>
             </div>
-            <div className='NavWeek'>
+            <div {...swipeHandlers} className='NavWeek'>
                 {weekArr.map((date, i) => {
                     return(
                         <div>

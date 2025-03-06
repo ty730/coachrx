@@ -10,7 +10,7 @@ function ActivityCard(props: Props) {
   return (
     <div className="ActivityCard">
         <h3>{props.activity.name}</h3>
-        <button className='EditButton' onClick={props.handleStartWorkout}>EDIT WORKOUT</button>
+        <button className='EditButton' onClick={props.handleStartWorkout}>START WORKOUT</button>
         <div className='TasksContainer'>
             {props.activity.tasks && props.activity.tasks.map((task, i) => {
                 return(

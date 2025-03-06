@@ -23,6 +23,17 @@ function WorkoutPage(props: Props) {
         setTasks(newTasks);
     }, []);
 
+    useEffect(() => {
+        let newTasks: Task[] = [];
+        if (props.activities[0].tasks) {
+            newTasks = [...props.activities[0].tasks];
+        }
+        if (props.activities[0].warmup) {
+            newTasks.splice(0, 0, { name: 'Warmup', details: props.activities[0].warmup });
+        }
+        setTasks(newTasks);
+    }, []);
+
     const swipeHandlers = useSwipe({ 
         onSwipedLeft: () => {
             if (tasks && slideNum + 1 < tasks.length) {
@@ -33,11 +44,12 @@ function WorkoutPage(props: Props) {
             if (tasks && slideNum - 1 >= 0) {
                 setSlideNum(slideNum - 1);
             }
-        }
+        },
+        allowDrag: true
     });
 
     return (
-        <div {...swipeHandlers} className="Workout">
+        <div className="Workout">
             <div className='WorkoutTop'>
                 <button className='ExitButton' onClick={props.handleCloseWorkout}>
                     <p>EXIT</p>
@@ -51,7 +63,7 @@ function WorkoutPage(props: Props) {
                     })}
                 </div>
             </div>
-            <div className='WorkoutMain'>
+            <div {...swipeHandlers} className='WorkoutMain'>
                 { tasks &&
                     <div className='TaskDetails'>
                         <h4>{tasks[slideNum].name}</h4>
