@@ -30,9 +30,17 @@ export default (input: SwipeInput): SwipeOutput => {
             const el = (e.currentTarget as HTMLElement);
             const currentX = e.targetTouches[0].clientX;
             const deltaX = currentX - touchStart;
-            const deltaXPercent = (deltaX / width) * 100;
-            (e.currentTarget as HTMLElement).style.transform = `translateX(${deltaXPercent}%)`;
-            (e.currentTarget as HTMLElement).style.transition = `0.05s ease`;
+            let deltaXPercent = (deltaX / width) * 100;
+            if (deltaXPercent > 6 || deltaXPercent < -6) {
+                if (deltaXPercent > 50) {
+                    deltaXPercent = 50;
+                }
+                if (deltaXPercent < -50) {
+                    deltaXPercent = -50;
+                }
+                (e.currentTarget as HTMLElement).style.transform = `translateX(${deltaXPercent}%)`;
+                (e.currentTarget as HTMLElement).style.transition = `0.05s ease`;
+            }
         }
         setTouchEnd(e.targetTouches[0].clientX);
     }
