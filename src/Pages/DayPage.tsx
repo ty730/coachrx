@@ -7,6 +7,7 @@ interface Props {
     activities: Activity[];
     currDateStr: string;
     handleDateChange: (date: Date) => void;
+    handleStartWorkout: () => void;
 }
 
 function DayPage(props: Props) {
@@ -28,7 +29,7 @@ function DayPage(props: Props) {
             <h2>YOUR DAILY RX</h2>
             {props.activities.map((item, i) => {
                 return(
-                    <ActivityCard activity={props.activities[i]} key={i}/>
+                    <ActivityCard activity={props.activities[i]} handleStartWorkout={props.handleStartWorkout} key={i}/>
                 );
             })}
         </div>

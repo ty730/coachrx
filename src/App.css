@@ -69,7 +69,7 @@ footer blue  color: #3cb4e5
 
 .Main {
   padding: 5px 0px 0px 0px;
-  min-height: 550px;
+  min-height: 75vh;
 }
 
 .NavBar, .Daily {
@@ -150,6 +150,7 @@ footer blue  color: #3cb4e5
   border-radius: 5px;
   padding: 5px 10px 15px 10px;
   margin-bottom: auto;
+  color: white;
 }
 
 .DateButton {
@@ -340,59 +341,6 @@ footer blue  color: #3cb4e5
 
 }
 
-@media only screen and (min-width: 750px) {
-  .Main {
-  }
-  .NavBar, .Daily {
-    padding: 0px 20% 0px 20%;
-  }
-
-  .Header {
-    padding: 20px 20% 20px 20%;
-  }
-
-  .Footer {
-    padding: 12px 10% 12px 10%;
-  }
-
-  .ActivityCard {
-    padding: 5px 10% 15px 10%;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .Main {
-  }
-
-  .NavBar, .Daily {
-    padding: 0px 30% 0px 30%;
-  }
-}
-
-@media only screen and (min-height: 720px) {
-  .Main {
-    min-height: 640px;
-  }
-}
-
-@media only screen and (min-height: 800px) {
-  .Main {
-    min-height: 740px;
-  }
-}
-
-@media only screen and (min-height: 850px) {
-  .Main {
-    min-height: 840px;
-  }
-}
-
-@media only screen and (min-height: 1000px) {
-  .Main {
-    min-height: 1250px;
-  }
-}
-
 .CurrDay {
   background-color: #229cc8;
   border: none;
@@ -477,4 +425,156 @@ footer blue  color: #3cb4e5
 
 .CalendarArrow {
   color: white;
+}
+
+.ExitButton {
+  all: unset; /* Remove all default button styling */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  color: white;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.CloseX {
+  margin-bottom: 1px;
+}
+
+.Workout {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+.WorkoutTop {
+  width: 100%;
+}
+
+.WorkoutProgress {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 5px 0 5px;
+}
+
+.WorkoutNavLine {
+  width: 100%;
+  margin: 0 1.5% 0 1.5%;
+  height: 2.5px;          /* Set the height to a small value to make it look like a line */
+  background-color: rgb(125, 125, 125); /* Set the color of the line */
+  border: none;         /* Remove any borders */
+}
+
+.WorkoutMain {
+  background-color: inherit;
+  min-height: 92vh;
+  color: white;
+  text-align: left;
+  padding: 0px 20px 0px 20px;
+}
+
+.WorkoutMain h4 {
+  font-size: 18px;
+  margin: 15px 0px 5px 0px;
+}
+
+.WorkoutMain p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.SelectedNavLine {
+  background-color: #229cc8;
+}
+
+/* MEDIA */
+
+@media only screen and (min-width: 1000px) {
+  .NavBar, .Daily {
+    padding: 0px 30% 0px 30%;
+  }
+
+  .ExitButton {
+    margin-right: 4% !important;
+  }
+}
+
+@media only screen and (min-height: 680px) {
+  .Main {
+    min-height: 77vh;
+  }
+
+  .WorkoutMain {
+    min-height: 93vh;
+  }
+}
+
+@media only screen and (min-height: 720px) {
+  .Main {
+    min-height: 79vh;
+  }
+
+  .WorkoutMain {
+    min-height: 93vh;
+  }
+}
+
+@media only screen and (min-height: 800px) {
+  .Main {
+    min-height: 81vh;
+  }
+
+  .WorkoutMain {
+    min-height: 94vh;
+  }
+}
+
+@media only screen and (min-height: 850px) {
+  .Main {
+    min-height: 83vh;
+  }
+
+  .WorkoutMain {
+    min-height: 95vh;
+  }
+}
+
+@media only screen and (min-height: 1000px) {
+  .Main {
+    min-height: 87vh;
+  }
+
+  .WorkoutMain {
+    min-height: 95vh;
+  }
+}
+
+@media only screen and (min-height: 1300px) {
+  .Main {
+    min-height: 90vh;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .NavBar, .Daily {
+    padding: 0px 20% 0px 20%;
+  }
+
+  .Header {
+    padding: 20px 20% 20px 20%;
+  }
+
+  .Footer {
+    padding: 12px 10% 12px 10%;
+  }
+
+  .ActivityCard {
+    padding: 5px 10% 15px 10%;
+  }
 }

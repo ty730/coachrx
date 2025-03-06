@@ -18,6 +18,7 @@ export type Task = {
 export type Activity = {
     name?: string;
     tasks?: Task[];
+    warmup?: string[]
 }
 
 export type ActivitiesObject = {
@@ -45,6 +46,14 @@ function App() {
 
     function openModal() {
       setIsModalOpen(true);
+    }
+
+    function openWorkout() {
+      setInWorkout(true);
+    }
+
+    function closeWorkout() {
+      setInWorkout(false);
     }
 
     useEffect(() => {
@@ -82,13 +91,18 @@ function App() {
       <div className="App">
           {
               inWorkout ?
-              <WorkoutPage activities={ activities } />
+              <WorkoutPage activities={ activities } handleCloseWorkout={closeWorkout} />
               :
               <div>
                   <Header />
                   <div className='Main'>
                     <NavBar currDateStr={dateStr} handleDateChange={handleDateChange} openModal={openModal} />
-                    <DayPage activities={ activities } currDateStr={dateStr} handleDateChange={handleDateChange} />
+                    <DayPage 
+                        activities={ activities } 
+                        currDateStr={dateStr} 
+                        handleDateChange={handleDateChange} 
+                        handleStartWorkout={openWorkout}
+                    />
                   </div>
                   <Footer />
                   { isModalOpen &&
