@@ -31,7 +31,7 @@ export default (input: SwipeInput): SwipeOutput => {
             const currentX = e.targetTouches[0].clientX;
             const deltaX = currentX - touchStart;
             let deltaXPercent = (deltaX / width) * 100;
-            deltaXPercent = deltaXPercent * 0.8;
+            deltaXPercent = deltaXPercent * 0.4;
             if (deltaXPercent > 6 || deltaXPercent < -6) {
                 if (deltaXPercent > 50) {
                     deltaXPercent = 50;

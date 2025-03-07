@@ -59,7 +59,7 @@ function WorkoutPage(props: Props) {
             <div className='WorkoutNav'>
                 <div className='WorkoutProgress'>
                     {tasks?.map((_, i) => {
-                        return(<div className={`WorkoutNavLine ${slideNum === i ? 'SelectedNavLine' : ''}`} key={i}></div>)
+                        return(<div onClick={() => setSlideNum(i)} className={`WorkoutNavLine ${slideNum === i ? 'SelectedNavLine' : ''}`} key={i}></div>)
                     })}
                 </div>
             </div>
@@ -74,6 +74,11 @@ function WorkoutPage(props: Props) {
                                 );
                             })}
                         </div>
+                    </div>
+                }
+                { tasks && (slideNum === tasks?.length - 1) &&
+                    <div className='EndWorkoutWrapper'>
+                        <button className='EndWorkoutButton' onClick={props.handleCloseWorkout}>FINISH WORKOUT</button>
                     </div>
                 }
             </div>

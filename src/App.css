@@ -418,7 +418,7 @@ html, body, #root {
 }
 
 .MonthTitle {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -437,6 +437,7 @@ html, body, #root {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 8px 15px 8px 15px;
 }
 
 .CalendarArrow {
@@ -494,6 +495,9 @@ html, body, #root {
   padding: 0px 20px 0px 20px;
   touch-action: none;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   /* transition: 0.2s ease; */
 }
 
@@ -509,6 +513,26 @@ html, body, #root {
 
 .SelectedNavLine {
   background-color: #229cc8;
+}
+
+.EndWorkoutButton {
+  background-color: #062b37;
+  color: white;
+  border: 1px solid #3cb4e5;
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  width: 96%;
+}
+
+.EndWorkoutWrapper {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* MEDIA */
