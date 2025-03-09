@@ -73,7 +73,7 @@ function App() {
       if (dateStr in data) {
           setActivities(data[dateStr as keyof typeof Data]['activities']);
       } else {
-          let tempData: Activity[] = [{
+          let tempActivity: Activity[] = [{
               "name": "Rest Day",
               "tasks": [
                   {
@@ -84,9 +84,44 @@ function App() {
                   }
               ]
           }];
-          setActivities(tempData);
+          const overallEnd = new Date("3/2/2025");
+          const currDate = new Date(dateStr);
+          if (currDate > overallEnd) {
+              const overallStart = new Date("11/25/2024");
+              let dateToUse = calculateDateToUse(currDate, overallStart, overallEnd);
+              let tempDateStr = dateToUse.toLocaleDateString('en-US');
+              if (tempDateStr in data) {
+                  let activityOnDate = data[tempDateStr as keyof typeof Data]['activities'];
+
+              }
+          }
+          setActivities(tempActivity);
       }
     }, [data, dateStr]);
+
+    function calculateDateToUse(currDate: Date, overallStart: Date, overallEnd: Date) {
+        const exerciseDays = dateDiff(overallStart, overallEnd) - dateDiff(new Date("2/3/2025"), new Date("2/9/2025"));
+        let offset = (dateDiff(overallEnd, currDate) - 1) % exerciseDays;
+        let dateToUse = new Date(overallStart.getTime());
+        dateToUse.setDate(dateToUse.getDate() + offset);
+        if (dateToUse >= new Date("2/3/2025")) {
+            dateToUse.setDate(dateToUse.getDate() + 7);
+        }
+        return dateToUse;
+    }
+
+    function dateDiff(date1: Date, date2: Date) {
+        // Calculating the time difference of two dates
+        let Difference_In_Time = date2.getTime() - date1.getTime();
+        // Calculating the no. of days between two dates
+        let differenceInDays = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+        return differenceInDays
+    }
+
+    function isHoliday(date: Activity) {
+      
+      return false;
+    }
 
     return (
       <div className="App">

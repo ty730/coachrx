@@ -24,8 +24,6 @@ function Calendar(props: Props) {
         let lastDate = new Date(year, month + 1, 0);
         const dayOfWeekLast = lastDate.getDay(); // Get the weekday (0 = Sunday, 6 = Saturday)
         lastDate.setDate(lastDate.getDate() + (dayOfWeekLast === 0 ? 0 : 7 - dayOfWeekLast));
-        console.log('first: ' + date.toLocaleDateString('en-US'))
-        console.log('last: ' + lastDate.toLocaleDateString('en-US'))
         setDatesArr(createDatesArr(date, lastDate));
     }, [month, year]);
 
@@ -85,14 +83,13 @@ function Calendar(props: Props) {
             </div>
               {[...Array(Math.ceil(datesArr.length / 7))].map((e, i) => {
                   return(
-                      <div className='Row'>
+                      <div className='Row' key={i}>
                           {datesArr.slice((i * 7), (i * 7) + 7).map((date, j) => {
                               return(
-                                  <div>
+                                  <div key={j}>
                                     { date.getMonth() === month ?
                                           <div>
                                               <DateButton 
-                                                  key={j}
                                                   className={'CalendarDate'}
                                                   currDateStr={props.currDateStr} 
                                                   date={date} 

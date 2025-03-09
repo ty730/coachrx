@@ -14,7 +14,7 @@ function ActivityCard(props: Props) {
         <div className='TasksContainer'>
             {props.activity.tasks && props.activity.tasks.map((task, i) => {
                 return(
-                    <div className='TaskDetails'>
+                    <div className='TaskDetails' key={i}>
                         <h4>{task.name}</h4>
                         <div className='details'>
                             {task.details && task.details.map((line, i) => {

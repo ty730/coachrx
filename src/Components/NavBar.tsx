@@ -72,11 +72,10 @@ function NavBar(props: Props) {
             <div {...swipeHandlers} className='NavWeek'>
                 {weekArr.map((date, i) => {
                     return(
-                        <div>
+                        <div key={i}>
                             { date ?
                                 <div>
                                     <DateButton 
-                                        key={i}
                                         className={'CircleButton'}
                                         currDateStr={props.currDateStr} 
                                         date={date} 
