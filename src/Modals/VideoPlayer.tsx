@@ -18,7 +18,9 @@ function VideoPlayer(props: Props) {
             <p>{props.name}</p>
         </div>
         <div>
-            {props.video}
+            {props.video &&
+            <iframe src={props.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+            }
         </div>
       </div>
   );

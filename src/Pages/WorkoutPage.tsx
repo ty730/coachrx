@@ -106,7 +106,7 @@ function WorkoutPage(props: Props) {
                 }
             </div>
             { isVideoOpen &&
-                <Modal isOpen={isVideoOpen} onClose={closeModal}>
+                <Modal isOpen={isVideoOpen} onClose={closeModal} class={'VideoModal'}>
                     <VideoPlayer onClose={closeModal} video={tasks ? tasks[slideNum]?.video : ''} name={tasks ? tasks[slideNum].name : ''} />
                 </Modal>
             }

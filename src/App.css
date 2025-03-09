@@ -403,11 +403,6 @@ html, body, #root {
 
 .ModalInner {
   height: fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-  padding: 20px 10px 20px 10px;
   background-color: #041d25;
   display: flex;
   justify-content: center;
@@ -415,7 +410,25 @@ html, body, #root {
 }
 
 .CalendarModal {
-  
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  padding: 20px 10px 20px 10px;
+}
+
+.VideoModal {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.VideoPlayer iframe {
+  border: none;
+  margin: 15px 0px 60px 0px;
+  height: 165px;
+  width: 330px;
 }
 
 .MonthTitle {
@@ -572,6 +585,7 @@ html, body, #root {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 }
 
 .VideoPlayer p {
@@ -582,6 +596,10 @@ html, body, #root {
 
 .VideoPlayer h4 {
   margin: 0;
+}
+
+.VideoPlayer {
+  width: 340px;
 }
 
 /* MEDIA */

@@ -107,7 +107,7 @@ function App() {
                   </div>
                   <Footer />
                   { isModalOpen &&
-                    <Modal isOpen={isModalOpen} onClose={closeModal}>
+                    <Modal isOpen={isModalOpen} onClose={closeModal} class={'CalendarModal'}>
                       <Calendar onClose={closeModal} currDateStr={dateStr} handleDateChange={handleDateChange} />
                     </Modal>
                   }
