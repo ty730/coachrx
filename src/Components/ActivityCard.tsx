@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, Task } from '../App';
+import { Activity } from '../App';
 
 interface Props {
     activity: Activity;
@@ -18,13 +18,6 @@ function ActivityCard(props: Props) {
                         <h4>{task.name}</h4>
                         <div className='details'>
                             {task.details && task.details.map((line, i) => {
-                                return(
-                                    <p key={i}>{line}</p>
-                                );
-                            })}
-                        </div>
-                        <div className='comments'>
-                            {task.comments && task.comments.map((line, i) => {
                                 return(
                                     <p key={i}>{line}</p>
                                 );

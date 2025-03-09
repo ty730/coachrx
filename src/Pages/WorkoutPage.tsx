@@ -2,6 +2,9 @@ import useSwipe from '../Hooks/useSwipe';
 import { Activity, Task } from '../App';
 import { IoIosClose } from "react-icons/io";
 import { useEffect, useState } from 'react';
+import { MdOutlinePlayArrow } from "react-icons/md";
+import Modal from '../Helpers/Modal';
+import VideoPlayer from '../Modals/VideoPlayer';
 
 interface Props {
     activities: Activity[];
@@ -11,6 +14,7 @@ interface Props {
 function WorkoutPage(props: Props) {
     const [slideNum, setSlideNum] = useState<number>(0);
     const [tasks, setTasks] = useState<Task[]>();
+    const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
     useEffect(() => {
         let newTasks: Task[] = [];
@@ -48,6 +52,14 @@ function WorkoutPage(props: Props) {
         allowDrag: true
     });
 
+    function closeModal() {
+        setIsVideoOpen(false);
+    }
+
+    function openModal() {
+        setIsVideoOpen(true);
+    }
+
     return (
         <div className="Workout">
             <div className='WorkoutTop'>
@@ -66,7 +78,18 @@ function WorkoutPage(props: Props) {
             <div {...swipeHandlers} className='WorkoutMain'>
                 { tasks &&
                     <div className='TaskDetails'>
-                        <h4>{tasks[slideNum].name}</h4>
+                        <div className='WorkoutTaskTitleContainer'>
+                            <h4>{tasks[slideNum].name}</h4>
+                            {
+                                tasks[slideNum].video &&
+                                <div className='VideoLinkContainer'>
+                                    <button className='VideoLink' onClick={openModal}>
+                                        <MdOutlinePlayArrow size={18} /> 
+                                        <p>Demo Video</p>
+                                    </button>
+                                </div>
+                            }
+                        </div>
                         <div className='details'>
                             {tasks[slideNum].details && tasks[slideNum].details?.map((line, i) => {
                                 return(
@@ -82,6 +105,11 @@ function WorkoutPage(props: Props) {
                     </div>
                 }
             </div>
+            { isVideoOpen &&
+                <Modal isOpen={isVideoOpen} onClose={closeModal}>
+                    <VideoPlayer onClose={closeModal} video={tasks ? tasks[slideNum]?.video : ''} name={tasks ? tasks[slideNum].name : ''} />
+                </Modal>
+            }
         </div>
     );
 }

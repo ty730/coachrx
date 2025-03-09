@@ -11,6 +11,7 @@ import WorkoutPage from './Pages/WorkoutPage';
 
 export type Task = {
     name?: string;
+    video?: string;
     details?: string[];
     comments?: string[];
 }
