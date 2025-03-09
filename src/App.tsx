@@ -91,8 +91,10 @@ function App() {
               let dateToUse = calculateDateToUse(currDate, overallStart, overallEnd);
               let tempDateStr = dateToUse.toLocaleDateString('en-US');
               if (tempDateStr in data) {
-                  let activityOnDate = data[tempDateStr as keyof typeof Data]['activities'];
-                  tempActivity = activityOnDate;
+                  let activitiesOnDate = data[tempDateStr as keyof typeof Data]['activities'];
+                  if (!isHoliday(activitiesOnDate[0])) {
+                    tempActivity = activitiesOnDate;
+                  }
               }
           }
           setActivities(tempActivity);
@@ -118,8 +120,12 @@ function App() {
         return differenceInDays
     }
 
-    function isHoliday(date: Activity) {
-
+    function isHoliday(activity: Activity) {
+      let dayOffStrings = ['merry', 'thanksgiving', 'bodypump']
+      if (dayOffStrings.some(str => activity.name?.toLocaleLowerCase().includes(str)) || 
+          dayOffStrings.some(str => activity.tasks && activity.tasks[0]?.name?.toLocaleLowerCase().includes(str))) {
+          return true;
+      }
       return false;
     }
 

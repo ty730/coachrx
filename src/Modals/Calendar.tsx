@@ -77,7 +77,7 @@ function Calendar(props: Props) {
             <div className='Row'>
                 {daysOfWeek.map((date, i) => {
                   return(
-                    <div className='DayName'>{ date.toLocaleString('en-US', { weekday: 'short'}).toUpperCase() }</div>
+                    <div className='DayName' key={i} >{ date.toLocaleString('en-US', { weekday: 'short'}).toUpperCase() }</div>
                   );
                 })}
             </div>
@@ -86,7 +86,7 @@ function Calendar(props: Props) {
                       <div className='Row' key={i}>
                           {datesArr.slice((i * 7), (i * 7) + 7).map((date, j) => {
                               return(
-                                  <div key={j}>
+                                  <div key={i + '' + j}>
                                     { date.getMonth() === month ?
                                           <div>
                                               <DateButton 

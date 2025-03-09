@@ -190,6 +190,7 @@
     "10/9/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "& Lifestyle",
@@ -485,7 +486,9 @@
                         "name": "Hydration - Units of Water",
                         "video": "",
                         "details": [
-                            "1200z water with electrolytes",
+                            "1200z water with electrolytes"
+                        ],
+                        "comments": [
                             "0"
                         ]
                     },
@@ -874,7 +877,9 @@
                             "Min 30min",
                             "Parasympathetic activity",
                             "Yoga, meditation, deep breathing, cold",
-                            "shower, coloring",
+                            "shower, coloring"
+                        ],
+                        "comments": [
                             "0"
                         ]
                     },
@@ -1299,7 +1304,9 @@
                             "Min 30min",
                             "Parasympathetic activity",
                             "Yoga, meditation, deep breathing, cold",
-                            "shower, coloring",
+                            "shower, coloring"
+                        ],
+                        "comments": [
                             "0"
                         ]
                     },
@@ -1392,6 +1399,7 @@
     "11/11/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "Weight",
@@ -1465,6 +1473,7 @@
     "11/13/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "Lunge Assessment",
@@ -1555,6 +1564,7 @@
     "11/19/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "@ OpexBody/Move ~<",
@@ -1632,6 +1642,7 @@
     "11/20/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "Lunge Assessment",
@@ -1821,28 +1832,7 @@
                         "name": "Single Arm Cable Lat Pulldown Machine",
                         "video": "https://www.youtube.com/embed/HBC5s98wXko",
                         "details": [
-                            "a ~ A",
-                            "@3111, 8 reps x 3 sets; rest 2:30"
-                        ]
-                    },
-                    {
-                        "name": "Dumbbell Floor Press",
-                        "video": "https://www.youtube.com/embed/jjlekYs1cfQ",
-                        "details": [
-                            "@3111, 8 reps x 3 sets; rest 2:30"
-                        ]
-                    },
-                    {
-                        "name": "Goblet Lateral Box Step Down",
-                        "video": "https://www.youtube.com/embed/aeZqZ3sKV8U",
-                        "details": [
-                            "@3011, 10/side x 3 sets; rest 2 min"
-                        ]
-                    },
-                    {
-                        "name": "Single Arm Cable Lat Pulldown Machine",
-                        "video": "https://www.youtube.com/embed/HBC5s98wXko",
-                        "details": [
+                            "in",
                             "@3011, 10 reps x 3 sets; rest 2 min"
                         ]
                     },
@@ -1867,6 +1857,7 @@
     "11/28/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "@ Happy Thanksgiving!",
@@ -2140,8 +2131,8 @@
                         ]
                     },
                     {
-                        "name": "\\_Hack Samat Machine Z",
-                        "video": "",
+                        "name": "Hack Samat Machine",
+                        "video": "https://www.youtube.com/embed/sw-5KcVZVk8",
                         "details": [
                             "15 lb",
                             "@3011, 8-10 reps x 3 sets; rest 2 min",
@@ -2242,8 +2233,10 @@
                         "video": "https://www.youtube.com/embed/RgkzQ008m3I",
                         "details": [
                             "@3011, 8-10 reps x 3 sets; rest 2 min",
-                            "12",
                             "Difficult should have done 10"
+                        ],
+                        "comments": [
+                            "12"
                         ]
                     },
                     {
@@ -2425,7 +2418,9 @@
                         "name": "Cable Oblique Rotation",
                         "video": "https://www.youtube.com/embed/rB0GwKy8UMg",
                         "details": [
-                            "@3011, 8-10/side x 3 sets; rest 2 min",
+                            "@3011, 8-10/side x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "15"
                         ]
                     }
@@ -2436,6 +2431,7 @@
     "12/14/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "@ BodyPump",
@@ -2785,6 +2781,7 @@
     "12/24/2024": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "@ Merry ChristmasEve",
@@ -2873,7 +2870,9 @@
                         "name": "Farmer's Carry",
                         "video": "https://www.youtube.com/embed/vW81EITekU0",
                         "details": [
-                            "40m x 3 sets; rest 2 min",
+                            "40m x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "25"
                         ]
                     }
@@ -3035,7 +3034,9 @@
                             "AMSAP/side x 3 sets; rest 2 min",
                             "*start on weaker side each set-match on",
                             "stronger side",
-                            "*goal is increased time per set",
+                            "*goal is increased time per set"
+                        ],
+                        "comments": [
                             "10"
                         ]
                     }
@@ -3086,8 +3087,10 @@
                     {
                         "name": "Goblet Russian Step-Up",
                         "video": "https://www.youtube.com/embed/RZsegx5MjMg",
+                        "comments": [
+                            "20"
+                        ],
                         "details": [
-                            "20",
                             "@3011, 8-10/side x 3 sets; rest 2 min",
                             "No weight",
                             "Concentrate strength from first leg on table"
@@ -3166,7 +3169,9 @@
                         "name": "Leg Press Machine Press",
                         "video": "https://www.youtube.com/embed/B8KqmwdomoU",
                         "details": [
-                            "@3011, 8-10 reps x 3 sets; rest 2 min",
+                            "@3011, 8-10 reps x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "130,135,140"
                         ]
                     },
@@ -3174,7 +3179,9 @@
                         "name": "Dumbbell Bench Press",
                         "video": "https://www.youtube.com/embed/ZaDlbm8E8Tg",
                         "details": [
-                            "@3011, 8-10 reps x 3 sets; rest 2 min",
+                            "@3011, 8-10 reps x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "1"
                         ]
                     },
@@ -3191,7 +3198,9 @@
                         "name": "Cable Standing Pallof Press",
                         "video": "https://www.youtube.com/embed/syYBcVbEAFk",
                         "details": [
-                            "@3011, 8-10/side x 3 sets; rest 2 min",
+                            "@3011, 8-10/side x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "20"
                         ]
                     }
@@ -3284,7 +3293,9 @@
                         "name": "Glute Bridge Dumbbell Floor Press",
                         "video": "https://www.youtube.com/embed/5bM4JL4Xlio",
                         "details": [
-                            "@3111, 7-8 reps x 3 sets; rest 2:30",
+                            "@3111, 7-8 reps x 3 sets; rest 2:30"
+                        ],
+                        "comments": [
                             "20"
                         ]
                     },
@@ -3358,27 +3369,7 @@
                         "name": "Seated Alternating Dumbbell Press",
                         "video": "https://www.youtube.com/embed/ZjWq4wTEuSI",
                         "details": [
-                            "@3111, 7-8 reps x 3 sets; rest 2:30"
-                        ]
-                    },
-                    {
-                        "name": "Supinated Bent Over Barbell Row",
-                        "video": "https://www.youtube.com/embed/ribtD2d8cs4",
-                        "details": [
-                            "@3111, 7-8 reps x 3 sets; rest 2:30"
-                        ]
-                    },
-                    {
-                        "name": "Dumbbell Romanian Deadlift",
-                        "video": "https://www.youtube.com/embed/6USOovx8pYI",
-                        "details": [
-                            "@3011, 8-10 reps x 3 sets; rest 2 min"
-                        ]
-                    },
-                    {
-                        "name": "Seated Alternating Dumbbell Press",
-                        "video": "https://www.youtube.com/embed/ZjWq4wTEuSI",
-                        "details": [
+                            "in",
                             "@3011, 16-20 alt reps x 3 sets; rest 2 min"
                         ]
                     },
@@ -3519,7 +3510,9 @@
                         "name": "Leg Press Machine Press",
                         "video": "https://www.youtube.com/embed/B8KqmwdomoU",
                         "details": [
-                            "@3011, 8-10 reps x 3 sets; rest 2 min",
+                            "@3011, 8-10 reps x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "130,135,140"
                         ]
                     },
@@ -3657,7 +3650,9 @@
                         "name": "Dumbbell Deadlift",
                         "video": "https://www.youtube.com/embed/zfuc5ynsTlc",
                         "details": [
-                            "3x10 reps @ 3011",
+                            "3x10 reps @ 3011"
+                        ],
+                        "comments": [
                             "15"
                         ]
                     },
@@ -3665,7 +3660,9 @@
                         "name": "Glute Bridge Dumbbell Floor Press",
                         "video": "https://www.youtube.com/embed/5bM4JL4Xlio",
                         "details": [
-                            "3x10 @ 3011",
+                            "3x10 @ 3011"
+                        ],
+                        "comments": [
                             "15"
                         ]
                     },
@@ -3918,7 +3915,9 @@
                         "name": "Glute Bridge Dumbbell Floor Press",
                         "video": "https://www.youtube.com/embed/5bM4JL4Xlio",
                         "details": [
-                            "@3111, 7 reps x 3 sets; rest 2:30",
+                            "@3111, 7 reps x 3 sets; rest 2:30"
+                        ],
+                        "comments": [
                             "20"
                         ]
                     },
@@ -4011,7 +4010,9 @@
                         "name": "Leg Press Machine Press",
                         "video": "https://www.youtube.com/embed/B8KqmwdomoU",
                         "details": [
-                            "@3011, 8 reps x 3 sets; rest 2 min",
+                            "@3011, 8 reps x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "135,140,140"
                         ]
                     },
@@ -4037,7 +4038,9 @@
                         "name": "Cable Standing Pallof Press",
                         "video": "https://www.youtube.com/embed/syYBcVbEAFk",
                         "details": [
-                            "@3011, 8/side x 3 sets; rest 2 min",
+                            "@3011, 8/side x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "20"
                         ]
                     }
@@ -4096,7 +4099,9 @@
                         "name": "Supinated Bent Over Barbell Row",
                         "video": "https://www.youtube.com/embed/ribtD2d8cs4",
                         "details": [
-                            "@3111, 7 reps x 3 sets; rest 2:30",
+                            "@3111, 7 reps x 3 sets; rest 2:30"
+                        ],
+                        "comments": [
                             "45"
                         ]
                     },
@@ -4177,7 +4182,9 @@
                         "name": "Glute Bridge Dumbbell Floor Press",
                         "video": "https://www.youtube.com/embed/5bM4JL4Xlio",
                         "details": [
-                            "@3111, 7 reps x 3 sets; rest 2:30",
+                            "@3111, 7 reps x 3 sets; rest 2:30"
+                        ],
+                        "comments": [
                             "20"
                         ]
                     },
@@ -4252,7 +4259,9 @@
                         "name": "Leg Press Machine Press",
                         "video": "https://www.youtube.com/embed/B8KqmwdomoU",
                         "details": [
-                            "@3011, 8 reps x 3 sets; rest 2 min",
+                            "@3011, 8 reps x 3 sets; rest 2 min"
+                        ],
+                        "comments": [
                             "140 140,140"
                         ]
                     },
@@ -4412,6 +4421,7 @@
     "2/10/2025": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "DB bent knee RDL (glute bias)",
@@ -4507,6 +4517,7 @@
     "2/11/2025": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "Incline Chest Press Machine",
@@ -4539,30 +4550,6 @@
                         "name": "Rope Cable Tricep Pushdown",
                         "video": "https://www.youtube.com/embed/y6EdXBdL75A",
                         "details": [
-                            "3x10 reps at 3010, rest 60s",
-                            "last set to failure"
-                        ],
-                        "comments": [
-                            "20"
-                        ]
-                    },
-                    {
-                        "name": "Cable Fly-High to Low",
-                        "video": "https://www.youtube.com/embed/H4XsZz3JmJ8",
-                        "details": [
-                            "3x10 at 3010, rest 30s",
-                            "last set to failure"
-                        ],
-                        "comments": [
-                            "15lb"
-                        ]
-                    },
-                    {
-                        "name": "Quadruped Floating Shoulder Touches",
-                        "video": "https://www.youtube.com/embed/h2OEyxPZYLs",
-                        "details": [
-                            "3x 10/side (controlled)",
-                            "rest 30s",
                             "3x10 reps at 3010, rest 60s",
                             "last set to failure"
                         ],
@@ -4691,38 +4678,14 @@
                     },
                     {
                         "name": "Facing away dual cable curl",
-                        "video": "https://www.youtube.com/embed/xrQlkUQCKQY"
-                    },
-                    {
-                        "name": "201N ract 2Ne",
-                        "video": "",
-                        "details": [
-                            "Used a flat weight for elevation",
-                            "3x10 reps at 3010, rest 60s",
-                            "fail the last set"
-                        ],
-                        "comments": [
-                            "60"
-                        ]
-                    },
-                    {
-                        "name": "Standing cable rear delt fly",
-                        "video": "https://www.youtube.com/embed/JENKmsEZQO8",
-                        "details": [
-                            "3x10 reps at 3010, rest 30s",
-                            "No set to failure",
-                            "2? How to do. 1"
-                        ]
-                    },
-                    {
-                        "name": "Facing away dual cable curl",
                         "video": "https://www.youtube.com/embed/xrQlkUQCKQY",
+                        "comments": [
+                            "1",
+                            "? Machine did arm curls 10lb"
+                        ],
                         "details": [
                             "3x10 reps @ 3010, rest 30s",
                             "DB if needed to help with superset"
-                        ],
-                        "comments": [
-                            "? Machine did arm curls 10lb"
                         ]
                     },
                     {
@@ -4847,6 +4810,7 @@
     "2/17/2025": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "DB bent knee RDL (glute bias)",
@@ -4935,6 +4899,7 @@
     "2/18/2025": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "Incline Chest Press Machine",
@@ -5200,6 +5165,7 @@
     "2/24/2025": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "DB bent knee RDL (glute bias)",
@@ -5297,6 +5263,7 @@
     "2/25/2025": {
         "activities": [
             {
+                "name": "Systemic",
                 "tasks": [
                     {
                         "name": "Neutral Grip Shoulder Press Machine",
@@ -5468,7 +5435,6 @@
                         "name": "Facing away dual cable curl",
                         "video": "https://www.youtube.com/embed/xrQlkUQCKQY",
                         "details": [
-                            "A 20A ND vact 90",
                             "3x10 reps @ 3010, rest 30s",
                             "DB if needed to help with superset"
                         ],
@@ -5552,8 +5518,7 @@
                         "details": [
                             "3x10 reps at 3010, rest 30s",
                             "front rack KB march",
-                            "3x20 steps",
-                            "x icth+ Clava ctan."
+                            "3x20 steps"
                         ]
                     },
                     {
@@ -5561,7 +5526,9 @@
                         "video": "https://www.youtube.com/embed/6lE9Q3QUPsQ",
                         "details": [
                             "3x20 steps",
-                            "*Keep Core tight. Slow steps",
+                            "*Keep Core tight. Slow steps"
+                        ],
+                        "comments": [
                             "10,15,15"
                         ]
                     }
