@@ -92,7 +92,7 @@ function App() {
               let tempDateStr = dateToUse.toLocaleDateString('en-US');
               if (tempDateStr in data) {
                   let activityOnDate = data[tempDateStr as keyof typeof Data]['activities'];
-
+                  tempActivity = activityOnDate;
               }
           }
           setActivities(tempActivity);
@@ -119,7 +119,7 @@ function App() {
     }
 
     function isHoliday(date: Activity) {
-      
+
       return false;
     }
 
