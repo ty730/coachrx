@@ -1,9 +1,11 @@
 import {TouchEvent, useState} from "react";
 
 interface SwipeInput {
-    onSwipedLeft: () => void
-    onSwipedRight: () => void
-    allowDrag?: boolean
+    onSwipedLeft: (xLocation: number, xStart: number) => void
+    onSwipedRight: (xLocation: number, xStart: number) => void
+    onMove: (xLocation: number, xStart: number) => void
+    onMoveEnd: (xLocation: number, xStart: number) => void
+    moveElement?: boolean
 }
 
 interface SwipeOutput {
@@ -26,10 +28,10 @@ export default (input: SwipeInput): SwipeOutput => {
     }
 
     const onTouchMove = (e: TouchEvent) => {
-        if (input.allowDrag) {
-            const el = (e.currentTarget as HTMLElement);
-            const currentX = e.targetTouches[0].clientX;
-            const deltaX = currentX - touchStart;
+        const el = (e.currentTarget as HTMLElement);
+        const currentX = e.targetTouches[0].clientX;
+        const deltaX = currentX - touchStart;
+        if (input.moveElement) {
             let deltaXPercent = (deltaX / width) * 100;
             deltaXPercent = deltaXPercent * 0.4;
             if (deltaXPercent > 6 || deltaXPercent < -6) {
@@ -39,28 +41,31 @@ export default (input: SwipeInput): SwipeOutput => {
                 if (deltaXPercent < -50) {
                     deltaXPercent = -50;
                 }
-                (e.currentTarget as HTMLElement).style.transform = `translateX(${deltaXPercent}%)`;
-                (e.currentTarget as HTMLElement).style.transition = `0.05s ease`;
+                el.style.transform = `translateX(${deltaXPercent}%)`;
+                el.style.transition = `0.05s ease`;
             }
         }
+        input.onMove(currentX, touchStart);
         setTouchEnd(e.targetTouches[0].clientX);
     }
 
     const onTouchEnd = (e: TouchEvent) => {
         if (!touchStart || !touchEnd) return;
-        const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
-        if (input.allowDrag) {
-            (e.currentTarget as HTMLElement).style.transform = '';
-            //(e.currentTarget as HTMLElement).style.transition = '';
+        const el = e.currentTarget as HTMLElement;
+        const distance = touchEnd - touchStart;
+        const isLeftSwipe = distance < -minSwipeDistance;
+        const isRightSwipe = distance > minSwipeDistance;
+        if (input.moveElement) {
+            el.style.transform = '';
+            el.style.transition = '';
         }
         if (isLeftSwipe) {
-            input.onSwipedLeft();
+            input.onSwipedLeft(touchEnd, touchStart);
         }
         if (isRightSwipe) {
-            input.onSwipedRight();
+            input.onSwipedRight(touchEnd, touchStart);
         }
+        input.onMoveEnd(touchEnd, touchStart);
     }
 
     return {

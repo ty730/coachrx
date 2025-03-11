@@ -19,17 +19,19 @@ function NavBar(props: Props) {
         day: "numeric",
       };
     const swipeHandlers = useSwipe({ 
-        onSwipedLeft: () => {
+        onSwipedLeft: (xLocation: number, xStart: number) => {
             let nextDate: Date = new Date(props.currDateStr);
             nextDate.setDate(nextDate.getDate() + 7);
             props.handleDateChange(nextDate);
         }, 
-        onSwipedRight: () => {
+        onSwipedRight: (xLocation: number, xStart: number) => {
             let prevDate: Date = new Date(props.currDateStr);
             prevDate.setDate(prevDate.getDate() - 7);
             props.handleDateChange(prevDate);
         },
-        allowDrag: true
+        onMove: (xLocation: number, xStart: number) => {},
+        onMoveEnd: (xLocation: number, xStart: number) => {},
+        moveElement: true
     });
 
     useEffect(() => {

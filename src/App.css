@@ -150,6 +150,7 @@ html, body, #root {
   cursor: pointer;
   text-align: center;
   border-radius: 2px;
+  margin-bottom: 5px;
 }
 
 .ActivityCard, .Header {
@@ -265,6 +266,21 @@ html, body, #root {
   flex-direction: column;
 }
 
+.SlideDetails {
+  padding: 5px 20px 10px 20px;
+  flex-direction: column;
+  display: flex;
+  overflow-x: visible;
+  transition-property: transform;
+  will-change: transform;
+}
+
+.SlideDetails h4 {
+  font-size: 16px;
+  margin: 0;
+  max-width: 70%;
+}
+
 .Italic {
   font-style: italic;
   color: rgb(165, 165, 165);
@@ -348,10 +364,6 @@ html, body, #root {
   cursor: pointer;
   text-align: center;
   border-radius: 2px;
-}
-
-.HeaderCommentContainer {
-
 }
 
 .CurrDay {
@@ -480,6 +492,7 @@ html, body, #root {
   min-height: 100%;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .WorkoutTop {
@@ -506,13 +519,14 @@ html, body, #root {
   background-color: inherit;
   color: white;
   text-align: left;
-  padding: 0px 20px 0px 20px;
   touch-action: none;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   /* transition: 0.2s ease; */
+  overflow-x: visible;
+  position: relative;
 }
 
 .WorkoutMain h4 {
@@ -600,6 +614,13 @@ html, body, #root {
 
 .VideoPlayer {
   width: 350px;
+}
+
+.Swiper {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  overflow-x: visible;
 }
 
 /* MEDIA */
