@@ -17,9 +17,9 @@ function WorkoutPage(props: Props) {
     const [tasks, setTasks] = useState<Task[]>();
     const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
     const [movement, setMovement] = useState<number>(0);
-    const [duration, setDuration] = useState<number>(0);
+    const [duration, setDuration] = useState<number>(0.1);
     const [WIDTH, HEIGHT] = useWindowSize();
-    const minSwipeDistance = 100;
+    const minSwipeDistance = 80;
 
     useEffect(() => {
         let newTasks: Task[] = [];
@@ -82,6 +82,7 @@ function WorkoutPage(props: Props) {
     function transitionTo(index: number, duration: number) {
         setSlideNum(index);
         setMovement(-(index * WIDTH));
+        setDuration(duration);
     }
 
     return (
@@ -102,7 +103,10 @@ function WorkoutPage(props: Props) {
             <div {...swipeHandlers} className='WorkoutMain'>
                 <div className='Swiper' style={{
                     transform: `translateX(${movement}px)`,
-                    transitionDuration: `0.5s`,
+                    transitionDuration: `${duration === 0 ? 0.1 : duration}s`,
+                }}
+                onTransitionEnd={() => {
+                    setDuration(0);
                 }}>
                     { tasks && tasks.map((task, i) => {
                         return(

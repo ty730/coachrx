@@ -1,7 +1,7 @@
 
 
 export function createDatesArr(start: Date, end: Date): Date[] {
-    let date = start;
+    let date = new Date(start.getTime());
     let datesArr = [];
     while (date <= end) {
         datesArr.push(new Date(date.getTime()));

@@ -82,10 +82,6 @@ html, body, #root {
   flex-grow: 1;
 }
 
-.NavBar, .Daily {
-  padding: 0px 20px 0px 20px;
-}
-
 .Header {
   display: flex;
   flex-direction: row;
@@ -234,6 +230,8 @@ html, body, #root {
 
 .Daily {
   text-align: left;
+  overflow-x: hidden;
+  height: fit-content;
 }
 
 .TasksContainer {
@@ -316,6 +314,7 @@ html, body, #root {
 
 .NavBar {
   margin: 0px 0px 32px 0px;
+  overflow-x: hidden;
 }
 
 .NavTop {
@@ -385,6 +384,16 @@ html, body, #root {
   width: 100%;
 }
 
+.ActivityCard {
+  width: 100%;
+  margin: 0px 20px 0px 20px;
+  overflow-y: hidden;
+}
+
+.NavWeek, .NavTop, .Daily h2 {
+  margin: 0px 20px 0px 20px;
+}
+
 .DayGrid {
   display: flex;
   flex-direction: column;
@@ -426,7 +435,7 @@ html, body, #root {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
-  padding: 20px 10px 20px 10px;
+  width: 100%;
 }
 
 .VideoModal {
@@ -529,6 +538,13 @@ html, body, #root {
   position: relative;
 }
 
+.SwiperContainer {
+  touch-action: none;
+  /* transition: 0.2s ease; */
+  overflow-x: visible;
+  position: relative;
+}
+
 .WorkoutMain h4 {
   font-size: 18px;
   margin: 15px 0px 5px 0px;
@@ -626,20 +642,12 @@ html, body, #root {
 /* MEDIA */
 
 @media only screen and (min-width: 1000px) {
-  .NavBar, .Daily {
-    padding: 0px 30% 0px 30%;
-  }
-
   .ExitButton {
     margin-right: 4% !important;
   }
 }
 
 @media only screen and (min-width: 750px) {
-  .NavBar, .Daily {
-    padding: 0px 20% 0px 20%;
-  }
-
   .Header {
     padding: 20px 20% 20px 20%;
   }

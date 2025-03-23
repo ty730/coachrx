@@ -36,6 +36,7 @@ function App() {
     const [data, setData] = useState<DataType>({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [inWorkout, setInWorkout] = useState(false);
+    const [days, setDays] = useState<Activity[][]>([]);
 
     function handleDateChange(date: Date) {
       setDateStr(date.toLocaleDateString('en-us'));
@@ -70,36 +71,50 @@ function App() {
     }, [isModalOpen]);
 
     useEffect(() => {
-      if (dateStr in data) {
-          setActivities(data[dateStr as keyof typeof Data]['activities']);
-      } else {
-          let tempActivity: Activity[] = [{
-              "name": "Rest Day",
-              "tasks": [
-                  {
-                      "name": "It's a rest day!",
-                      "details": [
-                          "Get outside, move, and enjoy some active recovery."
-                      ]
-                  }
-              ]
-          }];
-          const overallEnd = new Date("3/2/2025");
-          const currDate = new Date(dateStr);
-          if (currDate > overallEnd) {
-              const overallStart = new Date("11/25/2024");
-              let dateToUse = calculateDateToUse(currDate, overallStart, overallEnd);
-              let tempDateStr = dateToUse.toLocaleDateString('en-US');
-              if (tempDateStr in data) {
-                  let activitiesOnDate = data[tempDateStr as keyof typeof Data]['activities'];
-                  if (!isHoliday(activitiesOnDate[0])) {
-                    tempActivity = activitiesOnDate;
-                  }
-              }
-          }
-          setActivities(tempActivity);
-      }
+        let tempActivity: Activity[] = [];
+        if (dateStr in data) {
+            tempActivity = data[dateStr as keyof typeof Data]['activities'];
+        } else {
+            tempActivity = getActivity(dateStr);
+        }
+        setActivities(tempActivity);
+        let currDate = new Date(dateStr);
+        currDate.setDate(currDate.getDate() - 1);
+        let tempDays = [];
+        tempDays.push(getActivity(currDate.toLocaleDateString('en-US')));
+        tempDays.push(tempActivity);
+        currDate.setDate(currDate.getDate() + 2);
+        tempDays.push(getActivity(currDate.toLocaleDateString('en-US')));
+        setDays(tempDays);
     }, [data, dateStr]);
+
+    function getActivity(dateString: string) {
+        let tempActivity: Activity[] = [{
+            "name": "Rest Day",
+            "tasks": [
+                {
+                    "name": "It's a rest day!",
+                    "details": [
+                        "Get outside, move, and enjoy some active recovery."
+                    ]
+                }
+            ]
+        }];
+        const overallEnd = new Date("3/2/2025");
+        const currDate = new Date(dateString);
+        if (currDate > overallEnd) {
+            const overallStart = new Date("11/25/2024");
+            let dateToUse = calculateDateToUse(currDate, overallStart, overallEnd);
+            let tempDateStr = dateToUse.toLocaleDateString('en-US');
+            if (tempDateStr in data) {
+                let activitiesOnDate = data[tempDateStr as keyof typeof Data]['activities'];
+                if (!isHoliday(activitiesOnDate[0])) {
+                  tempActivity = activitiesOnDate;
+                }
+            }
+        }
+        return tempActivity;
+    }
 
     function calculateDateToUse(currDate: Date, overallStart: Date, overallEnd: Date) {
         const exerciseDays = dateDiff(overallStart, overallEnd) - dateDiff(new Date("2/3/2025"), new Date("2/9/2025"));
@@ -117,7 +132,7 @@ function App() {
         let Difference_In_Time = date2.getTime() - date1.getTime();
         // Calculating the no. of days between two dates
         let differenceInDays = Math.round(Difference_In_Time / (1000 * 3600 * 24));
-        return differenceInDays
+        return differenceInDays;
     }
 
     function isHoliday(activity: Activity) {
@@ -140,7 +155,7 @@ function App() {
                   <div className='Main'>
                     <NavBar currDateStr={dateStr} handleDateChange={handleDateChange} openModal={openModal} />
                     <DayPage 
-                        activities={ activities } 
+                        days={ days } 
                         currDateStr={dateStr} 
                         handleDateChange={handleDateChange} 
                         handleStartWorkout={openWorkout}
