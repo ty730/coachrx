@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Activity } from '../App';
 import ActivityCard from '../Components/ActivityCard';
 import useSwipe from '../Hooks/useSwipe';
@@ -19,7 +19,6 @@ function DayPage(props: Props) {
     const [WIDTH, HEIGHT] = useWindowSize();
     const [height, setHeight] = useState<number>(0);
     const minSwipeDistance = 100;
-    const ref = useRef<HTMLDivElement>(null);
 
     const swipeHandlers = useSwipe({ 
         onSwipedLeft: (xLocation: number, xStart: number) => {
@@ -29,9 +28,6 @@ function DayPage(props: Props) {
         onMove: (xLocation: number, xStart: number) => {
             const delta = xLocation - xStart;
             if (xLocation && (delta > 20 || delta < -20)) {
-                if (ref.current?.parentElement) {
-                    ref.current.parentElement.style.overflowY = "scroll";
-                }
                 setMovement(delta - (slideNum * WIDTH));
             }
         },
@@ -47,9 +43,6 @@ function DayPage(props: Props) {
                 transitionTo(slideNum - 1, Math.min(0.5, 1 - Math.abs(endPartial)))
             } else {
                 transitionTo(slideNum, Math.min(0.5, 1 - Math.abs(endPartial)))
-            }
-            if (ref.current?.parentElement) {
-                ref.current.parentElement.style.overflowY = "scroll";
             }
         },
         moveElement: false
@@ -71,7 +64,7 @@ function DayPage(props: Props) {
     }, [props.currDateStr]);
 
     return (
-        <div className="Daily" ref={ref}>
+        <div className="Daily">
             <h2>YOUR DAILY RX</h2>
             <div className='SwiperContainer'>
                 <div {...swipeHandlers} className='Swiper' 
@@ -82,7 +75,7 @@ function DayPage(props: Props) {
                 onTransitionEnd={() => {
                     if (slideNum !== 1) {
                         let nextDate: Date = new Date(props.currDateStr);
-                        let offset = slideNum == 2 ? 1 : -1;
+                        let offset = slideNum === 2 ? 1 : -1;
                         nextDate.setDate(nextDate.getDate() + offset);
                         props.handleDateChange(nextDate);
                         
