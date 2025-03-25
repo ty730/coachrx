@@ -56,9 +56,9 @@ function NavBar(props: Props) {
     });
 
     function transitionTo(index: number, duration: number) {
+        setDuration(duration);
         setSlideNum(index);
         setMovement(-(index * WIDTH));
-        setDuration(duration);
     }
 
     useEffect(() => {
@@ -100,6 +100,10 @@ function NavBar(props: Props) {
         setMovement(-(slideNum * WIDTH));
     }, [slideNum, WIDTH]);
 
+    useEffect(() => {
+        transitionTo(1, 0);
+    }, [props.currDateStr]);
+
     return (
         <div className="NavBar">
             <div className='NavTop'>
@@ -126,7 +130,7 @@ function NavBar(props: Props) {
                         let offset = slideNum == 2 ? 7 : -7;
                         nextDate.setDate(nextDate.getDate() + offset);
                         props.handleDateChange(nextDate);
-                        transitionTo(1, 0);
+                        
                     }
                 }}>
                     {
