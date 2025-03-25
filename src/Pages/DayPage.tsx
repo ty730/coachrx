@@ -49,15 +49,19 @@ function DayPage(props: Props) {
     });
 
     function transitionTo(index: number, duration: number) {
+        setDuration(duration);
         setSlideNum(index);
         setMovement(-(index * WIDTH));
-        setDuration(duration);
     }
 
     useEffect(() => {
         // Handle swiper
         setMovement(-(slideNum * WIDTH));
     }, [slideNum, WIDTH]);
+
+    useEffect(() => {
+        transitionTo(1, 0);
+    }, [props.currDateStr]);
 
     return (
         <div className="Daily">
@@ -73,7 +77,7 @@ function DayPage(props: Props) {
                         let offset = slideNum == 2 ? 1 : -1;
                         nextDate.setDate(nextDate.getDate() + offset);
                         props.handleDateChange(nextDate);
-                        transitionTo(1, 0);
+                        
                     }
                 }}>
                     {
