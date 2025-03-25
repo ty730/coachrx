@@ -34,7 +34,7 @@ function NavBar(props: Props) {
         },
         onMove: (xLocation: number, xStart: number) => {
             const delta = xLocation - xStart;
-            if (xLocation) {
+            if (xLocation && (delta > 20 || delta < -20)) {
                 setMovement(delta - (slideNum * WIDTH));
             }
         },
