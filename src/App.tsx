@@ -100,7 +100,7 @@ function App() {
                 }
             ]
         }];
-        const overallEnd = new Date("3/2/2025");
+        const overallEnd = new Date("3/30/2025");
         const currDate = new Date(dateString);
         if (currDate > overallEnd) {
             const overallStart = new Date("11/25/2024");
