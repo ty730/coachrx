@@ -105,14 +105,14 @@ function App() {
         if (currDate > overallEnd) {
             const overallStart = new Date("11/25/2024");
             let dateToUse = calculateDateToUse(currDate, overallStart, overallEnd);
-            let tempDateStr = dateToUse.toLocaleDateString('en-US');
-            if (tempDateStr in data) {
-                let activitiesOnDate = data[tempDateStr as keyof typeof Data]['activities'];
-                if (!isHoliday(activitiesOnDate[0])) {
-                  tempActivity = activitiesOnDate;
-                }
-            }
+            dateString = dateToUse.toLocaleDateString('en-US');
         }
+        if (dateString in data) {
+          let activitiesOnDate = data[dateString as keyof typeof Data]['activities'];
+          if (!isHoliday(activitiesOnDate[0])) {
+            tempActivity = activitiesOnDate;
+          }
+      }
         return tempActivity;
     }
 
