@@ -3,7 +3,6 @@ import './App.css';
 import Header from './Components/Header';
 import DayPage from './Pages/DayPage';
 import Data from './Data/data.json';
-import Footer from './Components/Footer';
 import NavBar from './Components/NavBar';
 import Modal from './Helpers/Modal';
 import Calendar from './Modals/Calendar';
@@ -118,7 +117,14 @@ function App() {
 
     function calculateDateToUse(currDate: Date, overallStart: Date, overallEnd: Date) {
         const exerciseDays = dateDiff(overallStart, overallEnd) - dateDiff(new Date("2/3/2025"), new Date("2/9/2025"));
-        let offset = (dateDiff(overallEnd, currDate) - 1) % exerciseDays;
+        // Specific logic for starting 7/7/2025
+        let offset;
+        if (currDate >= new Date("7/7/2025")) {
+          offset = (dateDiff(new Date("7/7/2025"), currDate)) % exerciseDays;
+        } else {
+          offset = (dateDiff(overallEnd, currDate) - 1) % exerciseDays;
+        }
+        //let offset = (dateDiff(overallEnd, currDate) - 1) % exerciseDays;
         let dateToUse = new Date(overallStart.getTime());
         dateToUse.setDate(dateToUse.getDate() + offset);
         if (dateToUse >= new Date("2/3/2025")) {
@@ -161,7 +167,6 @@ function App() {
                         handleStartWorkout={openWorkout}
                     />
                   </div>
-                  <Footer />
                   { isModalOpen &&
                     <Modal isOpen={isModalOpen} onClose={closeModal} class={'CalendarModal'}>
                       <Calendar onClose={closeModal} currDateStr={dateStr} handleDateChange={handleDateChange} />
